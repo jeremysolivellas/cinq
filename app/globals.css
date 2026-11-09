@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background: #f6f2ea;
+    color: #1b1b18;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply font-texte antialiased;
+    min-height: 100dvh;
+  }
+  :focus-visible {
+    outline: 3px solid #d9a441;
+    outline-offset: 2px;
+  }
+}
