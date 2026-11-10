@@ -8,7 +8,8 @@ export const SITE = {
     "Cinq envoie une demande d'avis à chaque client après la visite, relance deux jours plus tard, et vous montre votre note sur un seul écran. Pour les professionnels de l'immobilier.",
   // Prix en euros par mois. Prix de lancement proposé : 79 €.
   prixMois: 79,
-  essaiJours: 14,
+  // Durée de la garantie satisfait ou remboursé, en jours (à confirmer).
+  garantieJours: 14,
   lienCommencer: "#tarif",
   // Identifiant du tarif Stripe (mode test). En production, il sera remplacé
   // par la variable d'environnement STRIPE_PRICE_ID dans Vercel.

@@ -62,10 +62,11 @@ export default async function Accueil({
             href={SITE.lienCommencer}
             className="mt-8 flex min-h-14 w-full items-center justify-center rounded-lg bg-ocre px-6 text-lg font-semibold text-encre active:translate-y-px sm:inline-flex sm:w-auto"
           >
-            Commencer, c&apos;est gratuit
+            Commencer pour {SITE.prixMois} € par mois
           </a>
           <p className="mt-3 text-sm text-trait">
-            {SITE.essaiJours} jours d&apos;essai, sans carte bancaire.
+            Satisfait ou remboursé pendant {SITE.garantieJours} jours. Sans
+            engagement.
           </p>
         </div>
       </header>
@@ -130,11 +131,12 @@ export default async function Accueil({
               type="submit"
               className="mt-6 flex min-h-14 w-full items-center justify-center rounded-lg bg-sapin px-6 text-lg font-semibold text-papier active:translate-y-px sm:inline-flex sm:w-auto"
             >
-              Commencer, c&apos;est gratuit
+              Commencer pour {SITE.prixMois} € par mois
             </button>
           </form>
           <p className="mt-3 text-sm text-doux">
-            {SITE.essaiJours} jours d&apos;essai, sans carte bancaire.
+            Satisfait ou remboursé pendant {SITE.garantieJours} jours : écrivez-nous
+            et nous vous remboursons le mois, sans question.
           </p>
         </div>
       </section>
