@@ -9,8 +9,11 @@ export const SITE = {
   // Prix en euros par mois. Prix de lancement proposé : 79 €.
   prixMois: 79,
   essaiJours: 14,
-  // À remplacer à l'étape 2 par le lien de paiement Stripe.
   lienCommencer: "#tarif",
+  // Identifiant du tarif Stripe (mode test). En production, il sera remplacé
+  // par la variable d'environnement STRIPE_PRICE_ID dans Vercel.
+  stripePriceId:
+    process.env.STRIPE_PRICE_ID ?? "price_1UZvb4DqofHvblvjOPPGGrA8",
 } as const;
 
 export const prixParJour = (prixMois: number) =>

@@ -37,7 +37,12 @@ const FAQ = [
   },
 ];
 
-export default function Accueil() {
+export default async function Accueil({
+  searchParams,
+}: {
+  searchParams: Promise<{ paiement?: string }>;
+}) {
+  const { paiement } = await searchParams;
   return (
     <main>
       <header className="bg-sapin text-papier">
@@ -108,13 +113,29 @@ export default function Accueil() {
           <p className="mt-4 font-medium">
             Sans engagement, résiliable à tout moment.
           </p>
-          {/* Étape 2 : ce bouton ouvrira le paiement Stripe. */}
-          <a
-            href="#faq"
-            className="mt-6 flex min-h-14 w-full items-center justify-center rounded-lg bg-sapin px-6 text-lg font-semibold text-papier active:translate-y-px sm:inline-flex sm:w-auto"
-          >
-            Commencer, c&apos;est gratuit
-          </a>
+          {paiement === "annule" && (
+            <p role="status" className="mt-4 rounded-lg border border-trait bg-papier p-3 text-sm">
+              Le paiement a été annulé. Vous n&apos;avez rien payé. Vous pouvez
+              recommencer quand vous voulez.
+            </p>
+          )}
+          {paiement === "erreur" && (
+            <p role="alert" className="mt-4 rounded-lg border border-ocre bg-papier p-3 text-sm">
+              Un problème est survenu. Aucun paiement n&apos;a été effectué.
+              Réessayez dans un instant.
+            </p>
+          )}
+          <form action="/api/checkout" method="POST">
+            <button
+              type="submit"
+              className="mt-6 flex min-h-14 w-full items-center justify-center rounded-lg bg-sapin px-6 text-lg font-semibold text-papier active:translate-y-px sm:inline-flex sm:w-auto"
+            >
+              Commencer, c&apos;est gratuit
+            </button>
+          </form>
+          <p className="mt-3 text-sm text-doux">
+            {SITE.essaiJours} jours d&apos;essai, sans carte bancaire.
+          </p>
         </div>
       </section>
 
